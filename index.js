@@ -26,7 +26,7 @@ const exchangeCurrency = (data) => {
     outputCurrency.value = (
       inputCurrency.value * data.conversion_rates[to.value]
     ).toFixed(2);
-
+    console.log(outputCurrency.value);
     conversionInfo.innerText = `1 ${from.value} = ${
       data.conversion_rates[to.value]
     } ${to.value}`;
@@ -56,6 +56,16 @@ const fetchAndPopulateAPI = async () => {
 };
 
 document.addEventListener("DOMContentLoaded", fetchAndPopulateAPI);
-from.addEventListener("change", () => exchangeCurrency(data));
+from.addEventListener("change", async () => {
+  const url = `https://v6.exchangerate-api.com/v6/4454f9cd9a5f86f42e1e0a43/latest/${from.value}`;
+  try {
+    const response = await fetch(url);
+    data = await response.json();
+
+    exchangeCurrency(data);
+  } catch (error) {
+    conversionInfo.innerText = `Something went wrong...`;
+  }
+});
 to.addEventListener("change", () => exchangeCurrency(data));
 inputCurrency.addEventListener("input", () => exchangeCurrency(data));
