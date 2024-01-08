@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💵</text></svg>"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="heading">Currency Converter 💸</h2>
+      <div class="from">
+        <select name="from" id="from">
+          <option value="inr">INR</option>
+          <option value="usd">USD</option>
+          <option value="jpy">JPY</option>
+          <option value="aud">AUD</option>
+          <option value="gbp">GBP</option>
+          <option value="eur">EUR</option>
+        </select>
+        <input
+          type="number"
+          name="from-currency"
+          id="from-currency"
+          value="1"
+          min="0"
+        />
+      </div>
+      <div class="to">
+        <select name="to" id="to">
+          <option value="usd">USD</option>
+          <option value="inr">INR</option>
+          <option value="jpy">JPY</option>
+          <option value="aud">AUD</option>
+          <option value="gbp">GBP</option>
+          <option value="eur">EUR</option>
+        </select>
+        <input type="number" name="to-currency" id="to-currency" disabled />
+      </div>
+      <p>1 USD = 83.33 INR</p>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
