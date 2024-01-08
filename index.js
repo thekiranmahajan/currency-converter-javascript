@@ -69,3 +69,9 @@ from.addEventListener("change", async () => {
 });
 to.addEventListener("change", () => exchangeCurrency(data));
 inputCurrency.addEventListener("input", () => exchangeCurrency(data));
+
+const swap = document.getElementById("swap");
+swap.addEventListener("click", () => {
+  inputCurrency.value = outputCurrency.value;
+  exchangeCurrency(data);
+});

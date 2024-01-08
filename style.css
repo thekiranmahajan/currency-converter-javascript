@@ -35,6 +35,10 @@ body {
 .heading {
   margin: 10px 0px 30px 0px;
   text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 96%;
 }
 .from,
 .to {
@@ -68,14 +72,13 @@ select::-webkit-scrollbar {
   padding: 15px;
   margin-left: 20px;
 }
-/* Chrome, Safari, Edge, Opera */
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-/* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
 }
@@ -89,4 +92,67 @@ select {
 p {
   margin-top: 20px;
   font-size: small;
+}
+
+.rainbow-btn {
+  text-align: center;
+  position: relative;
+  border-radius: 4px;
+  margin-left: 100px;
+  z-index: 2;
+  overflow: hidden;
+  padding: 4px;
+  border: none;
+  outline: none;
+  transition: transform 300ms ease;
+}
+.rainbow-btn:active {
+  transform: scale(0.91);
+}
+.rainbow-btn:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    115deg,
+    #4fcf70,
+    #fad648,
+    #a767e5,
+    #12bcfe,
+    #44ce7b
+  );
+  background-size: 50% 100%;
+}
+.rainbow-btn span {
+  position: relative;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.752);
+  border-radius: 3px;
+  display: block;
+  height: 100%;
+  width: 100%;
+  color: white;
+  padding: 5px 10px;
+  font-weight: 500;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rainbow-btn span i {
+  transform: rotate(90deg);
+  font-size: medium;
+}
+.rainbow-btn:focus:before,
+.rainbow-btn:hover:before {
+  animation: rainbow-btn 0.75s linear infinite;
+}
+
+@keyframes rainbow-btn {
+  to {
+    transform: translateX(-50%);
+  }
 }
