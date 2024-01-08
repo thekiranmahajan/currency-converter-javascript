@@ -47,6 +47,15 @@ body {
   padding: 10px;
 }
 
+select {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+select::-webkit-scrollbar {
+  width: 0;
+}
+
 .from > input,
 .to > input {
   padding: 5px;
